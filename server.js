@@ -4,7 +4,10 @@ const app = express()
 const port = 8383
 const { db } = require('./firebase.js')
 const path = require('path');
+const fs = require('fs');
+const css = fs.readFileSync('./pagestyle.css', 'utf8');
 
+app.use(express.static("attendance"));
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
   app.get('/roster', (req, res) => {
