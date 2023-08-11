@@ -6,6 +6,9 @@ const { db } = require('./firebase.js')
 const path = require('path');
 
 app.use(express.json())
+
+app.use(express.static(__dirname + '/attendance/pagestyle.css'))
+
 app.use(express.urlencoded({ extended: true }));
   app.get('/roster', (req, res) => {
     res.sendFile(path.join(__dirname, 'roster.html'));
@@ -24,6 +27,7 @@ app.use(express.urlencoded({ extended: true }));
   });
   app.get('/record', (req, res) => {
     res.sendFile(path.join(__dirname, 'record.html'));
+    
   });
 app.listen(port, () => console.log(`Server has started on port: ${port}`))
 
