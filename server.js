@@ -22,6 +22,9 @@ app.use(express.urlencoded({ extended: true }));
   app.get('/entries', (req, res) => {
     res.sendFile(path.join(__dirname, 'entries.html'));
   });
+  app.get('/record', (req, res) => {
+    res.sendFile(path.join(__dirname, 'record.html'));
+  });
 app.listen(port, () => console.log(`Server has started on port: ${port}`))
 
 app.post('/addstudent', async (req, res) => {
